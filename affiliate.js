@@ -10,7 +10,7 @@ function shareOnSocialMedia() {
     const affiliateLink = document.getElementById('affiliateLink').value;
     const promoMessage = document.getElementById('promoMessage').value;
     // Simulate opening social media with prefilled message
-    const socialMediaUrl = `https://gamtha.github.io/globleissue-com/share?message=${encodeURIComponent(promoMessage)}&link=${encodeURIComponent(affiliateLink)}`;
+    const socialMediaUrl = `https://gamtha.github.io/globleissue-com/{encodeURIComponent(promoMessage)}&link=${encodeURIComponent(affiliateLink)}`;
     window.open(socialMediaUrl, '_blank');
 }
 
