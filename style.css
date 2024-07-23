@@ -1,0 +1,27 @@
+/* Custom styles for specific elements or pages */
+
+/* Example: Styling for solutions page */
+.solutions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.solution {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.solution h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.solution p {
+    font-size: 1rem;
+    color: #666;
+}

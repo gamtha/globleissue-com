@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Dashboard</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="navbar (2).css">
+    <link rel="stylesheet" href="affiliate (2).css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.css">
+    <style>
+        /* Additional CSS styles specific to the affiliate dashboard */
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <div class="logo">Your App Name</div>
+        <ul class="dropdown-menu" id="dropdown-menu">
+            <!-- Navigation links -->
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="chat.html">Chat</a></li>
+            <li><a href="payment.html">Payment</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="settings.html">Settings</a></li>
+            <li><a href="subscribe.html">Subscribe</a></li>
+            <li><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="affiliate-info">
+            <h1>Welcome to Your Affiliate Dashboard</h1>
+            <!-- Real-time stats section -->
+            <div class="affiliate-stats">
+                <h2>Your Affiliate Statistics</h2>
+                <ul>
+                    <li>Earnings: ₹<span id="earnings">0.00</span></li>
+                    <li>Referrals: <span id="referrals">0</span></li>
+                    <li>Conversion Rate: <span id="conversionRate">0%</span></li>
+                    <li>Payment History: <a href="payment.html">View Details</a></li>
+                </ul>
+            </div>
+
+            <!-- Affiliate Tools and promotion -->
+            <div class="affiliate-tools">
+                <h2>Affiliate Tools</h2>
+                <ul>
+                    <li>Unique Affiliate Link: <input type="text" id="affiliateLink" readonly><button onclick="copyAffiliateLink()">Copy</button></li>
+                    <li>Social Media Sharing Buttons</li>
+                    <li>Email Templates</li>
+                    <li>Marketing Materials</li>
+                </ul>
+            </div>
+
+            <div class="affiliate-promotion">
+                <h2>Promote Our Products</h2>
+                <p>Share your affiliate link to earn commissions:</p>
+                <textarea rows="5" cols="50" id="promoMessage" placeholder="Write your promotional message here..."></textarea>
+                <button onclick="shareOnSocialMedia()">Share on Social Media</button>
+                <button onclick="sendEmail()">Send via Email</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Your App Name</div>
+        <p>&copy; 2024 Your App Name. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="navbar(2).js"></script>
+    <script src="main(2).js"></script>
+    <script src="affiliate(2).js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        // Example JavaScript functions for affiliate dashboard
+
+        // Function to copy affiliate link to clipboard
+        function copyAffiliateLink() {
+            const affiliateLink = document.getElementById('affiliateLink').value;
+
+            navigator.clipboard.writeText(affiliateLink)
+                .then(() => {
+                    alert('Affiliate link copied to clipboard!');
+                })
+                .catch(err => {
+                    console.error('Failed to copy: ', err);
+                    alert('Copying failed. Please copy the link manually.');
+                });
+        }
+
+        // Function to share promotional message on social media
+        function shareOnSocialMedia() {
+            const affiliateLink = document.getElementById('affiliateLink').value;
+            const promoMessage = document.getElementById('promoMessage').value;
+            // Simulate opening social media with prefilled message
+            const socialMediaUrl = `https://example.com/share?message=${encodeURIComponent(promoMessage)}&link=${encodeURIComponent(affiliateLink)}`;
+            window.open(socialMediaUrl, '_blank');
+        }
+
+        // Function to send promotional email
+        function sendEmail() {
+            const affiliateLink = document.getElementById('affiliateLink').value;
+            const promoMessage = document.getElementById('promoMessage').value;
+            // Simulate sending email
+            alert(`Sending email:\n${promoMessage}\nLink: ${affiliateLink}`);
+        }
+
+        // Function to handle logout
+        function logout() {
+            alert('Logging out...');
+            // Implement logout functionality here
+        }
+
+        // Example function to fetch and update affiliate stats
+        async function fetchAffiliateStats() {
+            try {
+                const response = await fetch('/api/affiliate/stats', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+                    }
+                });
+                if (!response.ok) {
+                    throw new Error('Failed to fetch affiliate stats');
+                }
+                const stats = await response.json();
+                document.getElementById('earnings').textContent = stats.earnings.toFixed(2);
+                document.getElementById('referrals').textContent = stats.referrals;
+                document.getElementById('conversionRate').textContent = `${stats.conversionRate}%`;
+                document.getElementById('affiliateLink').value = stats.affiliateLink;
+            } catch (error) {
+                console.error('Error fetching affiliate stats:', error);
+            }
+        }
+
+        // Fetch affiliate stats on page load
+        window.addEventListener('DOMContentLoaded', fetchAffiliateStats);
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+/* Example styles, customize as needed */
+#chat {
+    border: 1px solid #ccc;
+    padding: 10px;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+#input {
+    margin-top: 10px;
+}
+
+#input input {
+    width: calc(100% - 70px);
+    padding: 5px;
+    margin-right: 5px;
+}
+
+#input button {
+    padding: 5px 10px;
+}

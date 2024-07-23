@@ -1,0 +1,12 @@
+/* Example CSS for settings icon */
+
+.settings-icon {
+    float: right; /* Adjust position as needed */
+    margin-right: 20px; /* Adjust margin as needed */
+}
+
+.settings-icon a img {
+    width: 30px; /* Adjust icon size as needed */
+    height: auto;
+    cursor: pointer;
+}

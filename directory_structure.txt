@@ -1,0 +1,218 @@
+Folder PATH listing for volume New Volume
+Volume serial number is A863-3CB0
+D:.
+|   config.json
+|   directory_structure.txt
+|   node modules.txt
+|   package-lock.json
+|   package.json
+|   README.md
+|   server.js
+|   
++---api
+|       affiliate.js
+|       auth.js
+|       chat.js
+|       chats.js
+|       courses.js
+|       index.js
+|       messages.js
+|       payments.js
+|       profile.js
+|       search.js
+|       users.js
+|       
++---arduino
++---backend
+|       chatController.js
+|       package-lock.json
+|       profileController.js
+|       server.js
+|       
++---components
+|       footer.html
+|       header.html
+|       navbar.html
+|       
++---config
+|       database.js
+|       index.js
+|       multerConfig.js
+|       paymentConfig.js
+|       searchConfig.js
+|       
++---controllers
+|       affiliateController.js
+|       authController.js
+|       chatController.js
+|       courseController.js
+|       messageController.js
+|       paymentController.js
+|       profileController.js
+|       searchController.js
+|       userController.js
+|       
++---courses
+|   +---course1
+|   |   |   index.html
+|   |   |   
+|   |   \---resources
+|   |           lesson1.pdf
+|   |           quiz1.html
+|   |           
+|   +---course2
+|   |   |   index.html
+|   |   |   
+|   |   \---resources
+|   |           lesson2.pdf
+|   |           quiz2.html
+|   |           
+|   +---course3
+|   |   |   index.html
+|   |   |   
+|   |   \---resources
+|   |           lesson3.pdf
+|   |           quiz3.html
+|   |           
+|   +---docs
+|   |       api_docs.md
+|   |       user_guide.pdf
+|   |       
+|   \---frontend
+|       +---assets
+|       |   +---css
+|       |   |       main.css
+|       |   |       navbar.css
+|       |   |       profile.css
+|       |   |       responsive.css
+|       |   |       style.css
+|       |   |       
+|       |   +---images
+|       |   |       background.jpg
+|       |   |       default-profile.png
+|       |   |       logo.png
+|       |   |       
+|       |   \---js
+|       |           ajaxFunctions.js
+|       |           footer.js
+|       |           header.js
+|       |           main.js
+|       |           navbar.js
+|       |           script.js
+|       |           
+|       +---components
+|       |       footer.html
+|       |       header.html
+|       |       navbar.html
+|       |       
+|       +---logs
+|       |       access.log
+|       |       error.log
+|       |       server.log
+|       |       
+|       +---payment
+|       |       instamojo.js
+|       |       
+|       +---private
+|       |       affiliate.html
+|       |       chat.html
+|       |       dashboard.html
+|       |       payment.html
+|       |       profile.html
+|       |       quiz.html
+|       |       search.html
+|       |       settings.html
+|       |       subscribe.html
+|       |       
+|       \---public
+|               about.html
+|               blog.html
+|               community.html
+|               contact.html
+|               course.html
+|               course_resources.html
+|               features.html
+|               forgot.html
+|               index.html
+|               login.html
+|               opportunities.html
+|               privacy.html
+|               reset.html
+|               signup.html
+|               solutions.html
+|               terms.html
+|               
++---frontend
+|   +---assets
+|   |   +---css
+|   |   |       affiliate.css
+|   |   |       chat.css
+|   |   |       main.css
+|   |   |       navbar.css
+|   |   |       profile.css
+|   |   |       responsive.css
+|   |   |       search.css
+|   |   |       settings-icon.css
+|   |   |       settings.css
+|   |   |       
+|   |   +---images
+|   |   |       default-profile.png
+|   |   |       
+|   |   \---js
+|   |           affiliate.js
+|   |           ajaxFunctions.js
+|   |           auth.js
+|   |           chat.js
+|   |           cropper.js
+|   |           dashboard.js
+|   |           follow.js
+|   |           main.js
+|   |           navbar.js
+|   |           profile.js
+|   |           search.js
+|   |           settings.js
+|   |           
+|   \---components
+|           footer.html
+|           header.html
+|           navbar.html
+|           sidebar.html
+|           
++---logs
+|       access.log
+|       error.log
+|       server.log
+|       
++---middleware
+|       authMiddleware.js
+|       errorHandler.js
+|       requestLogger.js
+|       
++---models
+|       Affiliate.js
+|       Chat.js
+|       Course.js
+|       Payment.js
+|       Search.js
+|       User.js
+|
++---scripts
+|       deploy.sh
+|       
++---services
+|       authService.js
+|       courseService.js
+|       paymentService.js
+|       searchService.js
+|       userService.js
+|       
+\---tests
+    +---integration
+    |       integration-test1.js
+    |       integration-test2.js
+    |       signup-test.js
+    |       
+    \---unit
+            unit-test1.js
+            unit-test2.js
+            

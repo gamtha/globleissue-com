@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <div class="logo">Gamtha</div>
+        <ul class="dropdown-menu" id="dropdown-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </header>
+
+    <main>
+        <div class="container">
+            <form id="resetForm">
+                <h2>Reset Password</h2>
+                <label for="token">Enter your reset token:</label>
+                <input type="text" id="token" name="token" required>
+                <label for="newPassword">New Password:</label>
+                <input type="password" id="newPassword" name="newPassword" required>
+                <button type="submit">Reset Password</button>
+            </form>
+            <div id="message"></div>
+        </div>
+    </main>
+
+    <script src="auth.js"></script>
+</body>
+</html>
