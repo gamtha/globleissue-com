@@ -16,7 +16,7 @@
     <!-- Navbar -->
     <header>
         <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-        <div class="logo">Your App Name</div>
+        <div class="logo">Gamtha</div>
         <ul class="dropdown-menu" id="dropdown-menu">
             <!-- Navigation links -->
             <li><a href="dashboard.html">Dashboard</a></li>
@@ -26,7 +26,7 @@
             <li><a href="quiz.html">Quiz</a></li>
             <li><a href="settings.html">Settings</a></li>
             <li><a href="subscribe.html">Subscribe</a></li>
-            <li><a href="#" onclick="logout()">Logout</a></li>
+            <li><a href="index.html" onclick="logout()">Logout</a></li>
         </ul>
     </header>
 
@@ -49,7 +49,7 @@
             <div class="affiliate-tools">
                 <h2>Affiliate Tools</h2>
                 <ul>
-                    <li>Unique Affiliate Link: <input type="text" id="affiliateLink" readonly><button onclick="copyAffiliateLink()">Copy</button></li>
+                    <li>Unique Affiliate Link: <input type="text" id="affiliateLink" readonly><button onclick="copyAffiliateLink (https://gamtha.github.io/globleissue-com/)">Copy</button></li>
                     <li>Social Media Sharing Buttons</li>
                     <li>Email Templates</li>
                     <li>Marketing Materials</li>
@@ -68,8 +68,8 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-logo">Your App Name</div>
-        <p>&copy; 2024 Your App Name. All rights reserved.</p>
+        <div class="footer-logo">Gamtha</div>
+        <p>&copy; 2024 Gamtha. All rights reserved.</p>
     </footer>
 
     <!-- JavaScript Files -->
@@ -99,7 +99,7 @@
             const affiliateLink = document.getElementById('affiliateLink').value;
             const promoMessage = document.getElementById('promoMessage').value;
             // Simulate opening social media with prefilled message
-            const socialMediaUrl = `https://example.com/share?message=${encodeURIComponent(promoMessage)}&link=${encodeURIComponent(affiliateLink)}`;
+            const socialMediaUrl = `https://gamtha.github.io/globleissue-com/{encodeURIComponent(promoMessage)}&link=${encodeURIComponent(affiliateLink)}`;
             window.open(socialMediaUrl, '_blank');
         }
 
