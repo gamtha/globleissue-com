@@ -2,7 +2,7 @@
 
 const express = require('express');
 const router = express.Router();
-const { getAffiliateStats, generateAffiliateLink, trackReferral } = require('../services/affiliateService');
+const { getAffiliateStats, generateAffiliateLink, trackReferral } = require('affiliateService');
 
 // GET affiliate statistics
 router.get('/stats', async (req, res) => {
@@ -17,7 +17,7 @@ router.get('/stats', async (req, res) => {
 // POST generate affiliate link
 router.post('/generate-link', async (req, res) => {
     try {
-        const link = await generateAffiliateLink(req.user.id, req.body.productID);  // Example: Generate link for a specific product
+        const link = await generateAffiliateLink(req.user.id, req.body.productID);  // Example: https://gamtha.github.io/globleissue-com/
         res.json({ link });
     } catch (err) {
         res.status(500).json({ message: err.message });
