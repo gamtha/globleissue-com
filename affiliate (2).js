@@ -2,8 +2,8 @@
 
 const express = require('express');
 const router = express.Router();
-const affiliateController = require('../controllers/affiliateController');
-const authMiddleware = require('../middleware/authMiddleware');
+const affiliateController = require('affiliateController');
+const authMiddleware = require('authMiddleware');
 
 // Secure routes with authentication middleware
 router.post('/track-referral', authMiddleware, affiliateController.trackReferral);
