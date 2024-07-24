@@ -3,18 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Paradise View</title>
-    <link rel="stylesheet" href="main.css">
+    <title>Home - Gamtha</title>
     <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="main.css">
     <style>
         /* Additional styles specific to index.html */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .hero-section {
+            background: url('path/to/your/image.jpg') no-repeat center center/cover;
+            padding: 100px 0;
+            color: #AAA700; /* Change text color */
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .btn-primary {
+            background-color: #1E90FF; /* Change button background color */
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: #1C86EE; /* Change button hover color */
+        }
+
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 300px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            padding: 20px;
+            background: #333;
+            color: white;
+            text-align: center;
+        }
+
+        .team-member img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+
+        .team-member h3 {
+            margin: 10px 0 5px;
+        }
     </style>
 </head>
 <body>
     <!-- Navbar -->
     <header>
         <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-        <div class="logo">Paradise View</div>
+        <div class="logo">Gamtha</div>
         <ul class="dropdown-menu" id="dropdown-menu">
             <li><a href="about.html">About</a></li>
             <li><a href="blog.html">Blog</a></li>
@@ -29,19 +97,111 @@
     <main>
         <section class="hero-section">
             <div class="hero-content">
-                <h1>Welcome to Paradise View</h1>
-                <p>Your gateway to exceptional online learning.</p>
+                <h1>Welcome to Gamtha</h1>
+                <p>Your gateway to addressing global challenges and personal growth.</p>
                 <a href="signup.html" class="btn-primary">Get Started</a>
             </div>
         </section>
 
-        <!-- Additional sections as needed -->
+        <!-- Vision Section -->
+        <section class="section vision-section">
+            <h2>Our Vision</h2>
+            <p>Gamtha aims to tackle critical societal issues and personal challenges through high-quality, visually appealing designs and animations. We focus on climate change, poverty alleviation, health improvement, time management, and career growth opportunities.</p>
+        </section>
+
+        <!-- Features Section -->
+        <section class="section features-section">
+            <h2>Our Features</h2>
+            <div class="grid features-grid">
+                <div class="card feature">
+                    <h3>Global Challenges</h3>
+                    <p>Solutions for climate change, poverty, health, and more.</p>
+                </div>
+                <div class="card feature">
+                    <h3>Personal Growth</h3>
+                    <p>Resources for career growth and time management.</p>
+                </div>
+                <div class="card feature">
+                    <h3>High-Quality Content</h3>
+                    <p>Visually appealing designs and animations.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Opportunities Section -->
+        <section class="section opportunities-section">
+            <h2>Opportunities</h2>
+            <div class="grid features-grid">
+                <div class="card feature">
+                    <h3>Freelance Jobs</h3>
+                    <p>Access a wide range of freelance opportunities.</p>
+                </div>
+                <div class="card feature">
+                    <h3>Business Ventures</h3>
+                    <p>Explore and start new business ventures.</p>
+                </div>
+                <div class="card feature">
+                    <h3>Skill Enhancement</h3>
+                    <p>Enroll in courses to improve and learn new skills.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section testimonials-section">
+            <h2>What Our Users Say</h2>
+            <div class="grid testimonials-grid">
+                <div class="card testimonial">
+                    <p>"Gamtha has transformed my learning experience!"</p>
+                    <p>- User One</p>
+                </div>
+                <div class="card testimonial">
+                    <p>"The best platform for online courses."</p>
+                    <p>- User Two</p>
+                </div>
+                <div class="card testimonial">
+                    <p>"Highly recommend Gamtha to everyone."</p>
+                    <p>- User Three</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="section team-section">
+            <h2>Meet Our Team</h2>
+            <div class="grid team-grid">
+                <div class="card team-member">
+                    <img src="path/to/team-member1.jpg" alt="Team Member 1">
+                    <h3>Team Member 1</h3>
+                    <p>Position</p>
+                </div>
+                <div class="card team-member">
+                    <img src="path/to/team-member2.jpg" alt="Team Member 2">
+                    <h3>Team Member 2</h3>
+                    <p>Position</p>
+                </div>
+                <div class="card team-member">
+                    <img src="path/to/team-member3.jpg" alt="Team Member 3">
+                    <h3>Team Member 3</h3>
+                    <p>Position</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="section newsletter-section">
+            <h2>Subscribe to Our Newsletter</h2>
+            <form id="newsletterForm">
+                <input type="email" id="newsletterEmail" name="email" placeholder="Enter your email" required>
+                <button type="submit" class="btn-primary">Subscribe</button>
+            </form>
+        </section>
     </main>
 
     <!-- Include footer -->
     <footer>
         <div class="footer-content">
-            &copy; 2024 Paradise View. All rights reserved.
+            &copy; 2024 Gamtha. All rights reserved.
         </div>
     </footer>
 
