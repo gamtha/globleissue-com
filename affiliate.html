@@ -10,6 +10,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.css">
     <style>
         /* Additional CSS styles specific to the affiliate dashboard */
+        .share-options {
+            display: none;
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        .share-options button {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .messages-link {
+            margin-top: 20px;
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
@@ -26,7 +47,7 @@
             <li><a href="quiz.html">Quiz</a></li>
             <li><a href="settings.html">Settings</a></li>
             <li><a href="subscribe.html">Subscribe</a></li>
-            <li><a href="index.html" onclick="logout()">Logout</a></li>
+            <li><a href="login.html" onclick="logout()">Logout</a></li>
         </ul>
     </header>
 
@@ -49,7 +70,9 @@
             <div class="affiliate-tools">
                 <h2>Affiliate Tools</h2>
                 <ul>
-                    <li>Unique Affiliate Link: <input type="text" id="affiliateLink" readonly><button onclick="copyAffiliateLink (https://gamtha.github.io/globleissue-com/)">Copy</button></li>
+                    <li>Unique Affiliate Link: <input type="text" id="affiliateLink" value="https://gamtha.github.io/globleissue-com/" readonly>
+                        <button onclick="copyAffiliateLink()">Copy</button>
+                    </li>
                     <li>Social Media Sharing Buttons</li>
                     <li>Email Templates</li>
                     <li>Marketing Materials</li>
@@ -60,8 +83,9 @@
                 <h2>Promote Our Products</h2>
                 <p>Share your affiliate link to earn commissions:</p>
                 <textarea rows="5" cols="50" id="promoMessage" placeholder="Write your promotional message here..."></textarea>
-                <button onclick="shareOnSocialMedia()">Share on Social Media</button>
+                <button onclick="showShareOptions()">Share on Social Media</button>
                 <button onclick="sendEmail()">Send via Email</button>
+                <a href="messages.html" class="messages-link">View Messages</a>
             </div>
         </section>
     </main>
@@ -72,14 +96,22 @@
         <p>&copy; 2024 Gamtha. All rights reserved.</p>
     </footer>
 
+    <!-- Sharing Options Popup -->
+    <div class="share-options" id="shareOptions">
+        <h3>Select a platform to share on:</h3>
+        <button onclick="shareOnPlatform('twitter')">Twitter</button>
+        <button onclick="shareOnPlatform('facebook')">Facebook</button>
+        <button onclick="shareOnPlatform('linkedin')">LinkedIn</button>
+        <button onclick="shareOnPlatform('instagram')">Instagram</button>
+        <button onclick="closeShareOptions()">Cancel</button>
+    </div>
+
     <!-- JavaScript Files -->
     <script src="navbar(2).js"></script>
     <script src="main(2).js"></script>
     <script src="affiliate(2).js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <script>
-        // Example JavaScript functions for affiliate dashboard
-
         // Function to copy affiliate link to clipboard
         function copyAffiliateLink() {
             const affiliateLink = document.getElementById('affiliateLink').value;
@@ -94,21 +126,57 @@
                 });
         }
 
-        // Function to share promotional message on social media
-        function shareOnSocialMedia() {
-            const affiliateLink = document.getElementById('affiliateLink').value;
-            const promoMessage = document.getElementById('promoMessage').value;
-            // Simulate opening social media with prefilled message
-            const socialMediaUrl = `https://gamtha.github.io/globleissue-com/{encodeURIComponent(promoMessage)}&link=${encodeURIComponent(affiliateLink)}`;
-            window.open(socialMediaUrl, '_blank');
+        // Function to show sharing options
+        function showShareOptions() {
+            document.getElementById('shareOptions').style.display = 'block';
+        }
+
+        // Function to close sharing options
+        function closeShareOptions() {
+            document.getElementById('shareOptions').style.display = 'none';
+        }
+
+        // Function to share on a specific platform
+        function shareOnPlatform(platform) {
+            const affiliateLink = encodeURIComponent(document.getElementById('affiliateLink').value);
+            const promoMessage = encodeURIComponent(document.getElementById('promoMessage').value);
+            let shareUrl = '';
+
+            switch (platform) {
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?text=${promoMessage} ${affiliateLink}`;
+                    break;
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${affiliateLink}`;
+                    break;
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${affiliateLink}&title=${promoMessage}`;
+                    break;
+                case 'instagram':
+                    alert('Instagram does not support direct sharing via URL. Please copy the link and share it manually on your Instagram bio or stories.');
+                    break;
+                default:
+                    alert('Unsupported platform');
+                    return;
+            }
+
+            // Open the share URL in a new tab/window for most platforms
+            if (platform !== 'instagram') {
+                window.open(shareUrl, '_blank');
+            }
+
+            // Thank the user and close the popup
+            closeShareOptions();
+            alert('Thank you for sharing!');
         }
 
         // Function to send promotional email
         function sendEmail() {
             const affiliateLink = document.getElementById('affiliateLink').value;
             const promoMessage = document.getElementById('promoMessage').value;
-            // Simulate sending email
-            alert(`Sending email:\n${promoMessage}\nLink: ${affiliateLink}`);
+
+            const mailtoLink = `mailto:?subject=Check out this link&body=${encodeURIComponent(promoMessage + '\n\n' + affiliateLink)}`;
+            window.location.href = mailtoLink;
         }
 
         // Function to handle logout
@@ -141,6 +209,30 @@
 
         // Fetch affiliate stats on page load
         window.addEventListener('DOMContentLoaded', fetchAffiliateStats);
+
+        // Detect platform and adjust functionality
+        function detectPlatform() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            if (/android/i.test(userAgent)) {
+                // Android-specific sharing
+                document.querySelectorAll('.share-options button').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const platform = button.textContent.toLowerCase();
+                        if (platform === 'instagram') {
+                            alert('Instagram sharing not supported directly. Copy the link to share.');
+                        } else {
+                            shareOnPlatform(platform);
+                        }
+                    });
+                });
+            } else {
+                // Windows-specific functionality
+                console.log('Windows platform detected');
+            }
+        }
+
+        // Run platform detection
+        detectPlatform();
     </script>
 </body>
 </html>
