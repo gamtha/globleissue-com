@@ -35,17 +35,19 @@
 <body>
     <!-- Navbar -->
     <header>
-        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </button>
         <div class="logo">Gamtha</div>
         <ul class="dropdown-menu" id="dropdown-menu">
-            <li><a href="dashboard.html">Dashboard</a></li>
-            <li><a href="chat.html">Chat</a></li>
-            <li><a href="payment.html">Payment</a></li>
-            <li><a href="profile.html">Profile</a></li>
-            <li><a href="quiz.html">Quiz</a></li>
-            <li><a href="settings.html">Settings</a></li>
-            <li><a href="subscribe.html">Subscribe</a></li>
-            <li><a href="login.html" onclick="logout()">Logout</a></li>
+            <li><a href="dashboard.html">Dashboard</a>
+            <li><a href="chat.html">Chat</a>
+            <li><a href="payment.html">Payment</a>
+            <li><a href="profile.html">Profile</a>
+            <li><a href="quiz.html">Quiz</a>
+            <li><a href="settings.html">Settings</a>
+            <li><a href="subscribe.html">Subscribe</a>
+            <li><a href="login.html" onclick="logout()">Logout</a>
         </ul>
     </header>
 
@@ -71,6 +73,9 @@
                     <li>Unique Affiliate Link: <input type="text" id="affiliateLink" value="https://gamtha.github.io/globleissue-com/" readonly>
                         <button onclick="copyAffiliateLink()">Copy</button>
                     </li>
+                    <li>Social Media Sharing Buttons</li>
+                    <li>Email Templates</li>
+                    <li>Marketing Materials</li>
                 </ul>
             </div>
 
@@ -80,7 +85,6 @@
                 <textarea rows="5" cols="50" id="promoMessage" placeholder="Write your promotional message here..."></textarea>
                 <button onclick="showShareOptions()">Share on Social Media</button>
                 <button onclick="sendEmail()">Send via Email</button>
-                <a href="messages.html" class="messages-link">View Messages</a>
             </div>
         </section>
     </main>
