@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="affiliate (2).css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.css">
     <style>
-        /* Additional CSS styles specific to the affiliate dashboard */
         .share-options {
             display: none;
             position: fixed;
@@ -39,7 +38,6 @@
         <button class="menu-toggle" onclick="toggleMenu()">☰</button>
         <div class="logo">Gamtha</div>
         <ul class="dropdown-menu" id="dropdown-menu">
-            <!-- Navigation links -->
             <li><a href="dashboard.html">Dashboard</a></li>
             <li><a href="chat.html">Chat</a></li>
             <li><a href="payment.html">Payment</a></li>
@@ -73,9 +71,6 @@
                     <li>Unique Affiliate Link: <input type="text" id="affiliateLink" value="https://gamtha.github.io/globleissue-com/" readonly>
                         <button onclick="copyAffiliateLink()">Copy</button>
                     </li>
-                    <li>Social Media Sharing Buttons</li>
-                    <li>Email Templates</li>
-                    <li>Marketing Materials</li>
                 </ul>
             </div>
 
@@ -160,8 +155,15 @@
                     return;
             }
 
-            // Open the share URL in a new tab/window for most platforms
-            if (platform !== 'instagram') {
+            // For Android devices, use an intent-based approach for social media sharing
+            if (navigator.userAgent.match(/Android/i)) {
+                if (platform === 'instagram') {
+                    alert('Instagram sharing requires manual intervention. Copy the link and use it in your Instagram bio or stories.');
+                } else {
+                    window.open(shareUrl, '_blank');
+                }
+            } else {
+                // Open the share URL in a new tab/window for most platforms
                 window.open(shareUrl, '_blank');
             }
 
@@ -209,30 +211,6 @@
 
         // Fetch affiliate stats on page load
         window.addEventListener('DOMContentLoaded', fetchAffiliateStats);
-
-        // Detect platform and adjust functionality
-        function detectPlatform() {
-            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            if (/android/i.test(userAgent)) {
-                // Android-specific sharing
-                document.querySelectorAll('.share-options button').forEach(button => {
-                    button.addEventListener('click', () => {
-                        const platform = button.textContent.toLowerCase();
-                        if (platform === 'instagram') {
-                            alert('Instagram sharing not supported directly. Copy the link to share.');
-                        } else {
-                            shareOnPlatform(platform);
-                        }
-                    });
-                });
-            } else {
-                // Windows-specific functionality
-                console.log('Windows platform detected');
-            }
-        }
-
-        // Run platform detection
-        detectPlatform();
     </script>
 </body>
 </html>
